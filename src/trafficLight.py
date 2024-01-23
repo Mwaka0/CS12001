@@ -6,11 +6,12 @@ import machine, time
 red = 15
 yellow = 14
 green = 13
-led = machine.Pin(ledPin, machine.Pin.OUT)
 
 while True:
-    led.toggle()
+    toggleLED(red)
     time.sleep(0.5)
 
 
-def 
+def toggleLED(colour):
+    led = machine.Pin(ledPin, machine.Pin.OUT)
+    led.toggle()
