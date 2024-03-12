@@ -3,6 +3,9 @@ import network
 import time
 import socket
 
+# My pico's IP
+picoIP = '192.168.4.1'
+
 # Create access point object using 
 ap = network.WLAN(network.AP_IF)
 # Set up access point configuration (SSID and password)
@@ -25,7 +28,6 @@ apSocket.bind(('', 80))
 apSocket.listen(5)
 # Print config information​
 print(ap.ifconfig())
-
 
 # Loop to handle all incoming connections (clients)​
 while True:
