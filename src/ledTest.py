@@ -3,7 +3,7 @@
 
 import machine, time
 
-ledPin = 15
+ledPin = 16
 led = machine.Pin(ledPin, machine.Pin.OUT)
 
 while True:
