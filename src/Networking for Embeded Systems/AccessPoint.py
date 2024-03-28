@@ -2,17 +2,37 @@
 import network
 import time
 import socket
+import random
+
+#random temperature number
+def randomTemp():
+    temp = random.randint(-10, 35)
+    return temp
+
+#Creating HTML
+def creatHTML():
+    HTML = f"""
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta http-equiv="refresh" content="1">
+        <meta charset="UTF-8">
+        <title>Temperature</title>
+    </head>
+    <body>
+        <p>This is the current temperature: {temp}</p>
+    </body>
+    </html>
+    """
+    return HTML
+
+HTML =""
+
+with open ('webpage.html', 'r') as f:
+    HTML = f.read()
 
 # My pico's IP
 picoIP = '192.168.4.1'
-
-# Set up html string
-htmlString = ""
-
-# Read the webpage.html file
-with open('webpage.html', 'r') as f:
-    # Assign the html to the html string
-    html_string = f.read()
 
 # Create access point object using 
 ap = network.WLAN(network.AP_IF)
@@ -41,13 +61,18 @@ print(ap.ifconfig())
 while True:
     # Store connection and address details of incoming connection
     connection, address = apSocket.accept()
-    # Print the address of the incoming connection
-    print('Connection by %s' % str(address))
-    # store the recieved connection request
+   
+   # Store the received connection request
     request = connection.recv(1024)
-    # Print the content of the connection request
-    print('Connection Request: %s' % str(request))
+    request = str(request)
+    request = request.split()[1]
+
+    # Create temp(temperature) variable 
+    temp = randomTemp()
+    stringToSend = HTML.format(temp=temp)
     # Send response back to client
-    connection.send(htmlString)
+    connection.send(stringToSend)
     # Close the current connection
     connection.close()
+
+    

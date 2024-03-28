@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+ 
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   
+    <script>
+        setInterval(() => location.replace(location.origin), 3000)
+    </script>
+    <title>Weather System</title>
+    <link rel="stylesheet" href="styleSheet.css">
+    </script>
+    <style>
+        h1 {
+            color: rgb(0, 0, 0);
+            text-align: center;
+            padding-top: 2%;
+        }
+ 
+        h2 {
+            color: rgb(0, 0, 0);
+            text-align: center;
+        }
+ 
+        p {
+            color: rgb(0, 0, 0);
+            text-align: center;
+        }
+ 
+        #description-text {
+            padding-left: 5%;
+            padding-right: 5%;
+            padding-top: 2%;
+            padding-bottom: 2%;
+        }
+ 
+        .box {
+            margin: 30px;
+            background-color: #ffffff;
+            border: 1px solid black;
+            opacity: 0.75;
+ 
+        }
+ 
+        .boxBorder {
+            padding: 5%;
+        }
+ 
+        #hot-img {
+            text-align: center;
+            padding: 5%;
+        }
+ 
+        #cold-img {
+            text-align: center;
+            padding: 5%;
+        }
+ 
+        /*sets styling for the footer*/
+        footer {
+            padding-bottom: 0%;
+            margin-bottom: 0%;
+            margin-top: 5%;
+            background-color: black;
+            color: antiquewhite;
+        }
+ 
+        /*sets the width for the rounded box used in the navbar and the footer*/
+        .rounded-pill {
+            width: 40px;
+        }
+    </style>
+</head>
+ 
+<body>
+ 
+    <div class="boxBorder">
+        <div class="box">
+            <h1>Weather System</h1>
+ 
+            <!--description of the system-->
+            <p id="description-text">
+                Our project is a weather system which includes 2 sensors these are a dust sensor and a temprature
+                sensor,
+                the dust sensor will display the number of particals in the air per cubic metre and the temprature in
+                the
+                surrounding area per degrees celcius, this will be displayed on both the board and the website, the
+                board has 2 lights, red and blue,
+                red is for above room temprature (hot) and blue is for below room temprature (cold), the actual values
+                of these will be displayed on the website.
+            </p>
+ 
+            <h2>Dust</h2>
+ 
+            <p>the amount of dust in the air is currently { dustP }</p>
+ 
+ 
+            <h2>Temprature</h2>
+ 
+            <p>the temprature in the area is currently { temp }</p>
+ 
+ 
+        </div>
+    </div>
+ 
+    <script>
+        let cold = document.getElementById("hot");
+        let hot = document.getElementById("cold");
+ 
+        if (Number("{ temp }") > 25) {
+            document.body.style.backgroundColor = "#FF0C0C";
+        } else {
+            document.body.style.backgroundColor = "#64F6FF";
+ 
+        }
+    </script>
+</body>
+ 
+</html>
